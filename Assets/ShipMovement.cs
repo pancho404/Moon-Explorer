@@ -46,9 +46,13 @@ public class ShipMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            transform.position += transform.up * movementSpeed;
+            rb.AddForce(transform.up * movementSpeed, ForceMode.Force);
+        }
+        else
+        {
+            rb.AddForce(-downFall, ForceMode.Force);
         }
         
-        transform.position -= downFall;
+       // transform.position -= downFall;
     }
 }
